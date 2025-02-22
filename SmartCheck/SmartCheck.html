@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Drag And Drop</a></li>
+            <li><a href="./../qrCode.html">QR Generator</a></li>
+            <li><a href="./../GoogleMaps/map.html">Google Map</a></li>
+            <li><a href="SmartCheck.html">Smart Check</a></li>
+            <li><a href="./../upComing.html">UPCOMING..</a></li>
+        </ul>
+    </nav>
+    <!-- <div onclick="uncheck()">
+
+      <input type="checkbox" id="parent" >
+<label for="parent">parent</label>
+    
+<input type="checkbox" id="child-1">
+<label for="child-1">child</label>
+<input type="checkbox" id="child-2">
+<label for="child-2">child</label>
+<input type="checkbox" id="child-3" >
+<label for="child-3">child</label>  
+    </div> -->
+
+    <div>
+        <ul>
+            <li>
+              <input type="checkbox" id="parent"><label for="parent"> Parent</label>
+              <ul>
+                <li><label><input type="checkbox" class="subOption"> Child-1</label></li>
+                <li><label><input type="checkbox" class="subOption"> Child-2</label></li>
+                <li><label><input type="checkbox" class="subOption"> Child-3</label>
+                    <ul>
+                    <li>
+                      <input type="checkbox" id="parent"><label for="parent"> Parent</label>
+                      <ul>
+                        <li><label><input type="checkbox" class="subOption"> Child-1</label></li>
+                        <li><label><input type="checkbox" class="subOption"> Child-2</label></li>
+                        <li><label><input type="checkbox" class="subOption"> Child-3</label></li>
+                      </ul>
+                    </li>
+                  </ul></li>
+              </ul>
+            </li>
+          </ul>
+    </div>
+
+
+
+
+<!-- <button onclick="uncheck()">click</button> -->
+
+<script>
+
+var checkboxes = document.querySelectorAll('input.subOption'),
+    checkall = document.getElementById('parent');
+
+for(var i=0; i<checkboxes.length; i++) {
+  checkboxes[i].onclick = function() {
+    var checkedCount = document.querySelectorAll('input.subOption:checked').length;
+
+    checkall.checked = checkedCount > 2;
+    // checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+  }
+}
+
+checkall.onclick = function() {
+  for(var i=0; i<checkboxes.length; i++) {
+    checkboxes[i].checked = this.checked;
+  }
+}
+   
+    
+</script>
+</body>
+</html>
